@@ -4,6 +4,7 @@ import {
   Signup,
   ForgotPassword,
   ResetPassword,
+  Logout,
 } from "./Controller/Authcontroller.js";
 const authrouter = express.Router();
 import { VerifyToken } from "./Middleware/middleware.js";
@@ -13,16 +14,8 @@ authrouter.post("/signup", Signup);
 authrouter.post("/forgot-password", ForgotPassword);
 authrouter.post("/reset-password", ResetPassword);
 authrouter.get("/home", VerifyToken, (req, res) => {
-  res.json({ message: `Hello ${req.user.email}, you're authorized.` });
+  res.json({ message: `Hello ${req.user.email}, you're authorized` });
 });
-authrouter.post("/logout", (req, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    sameSite: "lax",
-    secure: false, // ✅ true in production (HTTPS)
-  });
-
-  res.status(200).json({ message: "Logged out successfully" });
-});
+authrouter.post("/logout", Logout);
 
 export default authrouter;

@@ -149,4 +149,13 @@ async function ResetPassword(req, res) {
   }
 }
 
-export { Signin, Signup, ForgotPassword, ResetPassword };
+async function Logout(req, res) {
+  res.clearCookie("token", {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: false, // ✅ true in production (HTTPS)
+  });
+  res.status(200).json({ message: "Logged out successfully" });
+}
+
+export { Signin, Signup, ForgotPassword, ResetPassword, Logout };
