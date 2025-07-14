@@ -46,9 +46,9 @@ function SignUp() {
           withCredentials: true,
         }
       );
+      console.log("response: ", response);
       navigate("/home");
       alert("Signup successful!");
-      console.log("response: ", response);
       setFormData({ email: "", password: "", confirmPassword: "" });
     } catch (err) {
       if (err.response?.data?.message) {
