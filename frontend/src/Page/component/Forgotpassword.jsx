@@ -25,7 +25,7 @@ function Forgotpassword() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5500/api/main/forgot-password",
+        "http://localhost:5500/api/features/forgot-password",
         {
           token,
           email,

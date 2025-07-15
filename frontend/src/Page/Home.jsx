@@ -6,7 +6,7 @@ function Home() {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:5500/api/main/home", {
+      .get("http://localhost:5500/api/features/home", {
         withCredentials: true,
       })
       .then((res) => {
@@ -21,15 +21,9 @@ function Home() {
   }, []);
   const logout = async () => {
     try {
-      await axios.post(
-        "http://localhost:5500/api/main/logout",
-        {},
-        {
-          withCredentials: true, // send the cookie
-        }
-      );
-
-      // Optional: redirect or update state
+      await axios.post("http://localhost:5500/api/features/logout", {
+        withCredentials: true,
+      });
       navigate("/");
       alert("Logged out successfully");
     } catch (err) {

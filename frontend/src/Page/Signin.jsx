@@ -26,7 +26,7 @@ function SignUp() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5500/api/main/signin",
+        "http://localhost:5500/api/features/signin",
         {
           email: formData.email,
           password: formData.password,

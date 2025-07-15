@@ -13,6 +13,7 @@ authrouter.post("/signin", Signin);
 authrouter.post("/signup", Signup);
 authrouter.post("/forgot-password", ForgotPassword);
 authrouter.post("/reset-password", ResetPassword);
+
 authrouter.get("/home", VerifyToken, (req, res) => {
   res.json({ message: `Hello ${req.user.email}, you're authorized` });
 });

@@ -3,6 +3,6 @@ import authrouter from "./Auth/routes.js";
 
 const featuresrouter = express.Router();
 
-featuresrouter.use("/main", authrouter);
+featuresrouter.use("/features", authrouter);
 
 export default featuresrouter;
